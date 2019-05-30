@@ -1,0 +1,7 @@
+input.btn.btn-primary {
+    color: white;
+    background: white;
+    background-image: white;
+    border: white;
+    box-shadow: none;
+}

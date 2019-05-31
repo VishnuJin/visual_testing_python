@@ -14,15 +14,16 @@ except:
     fol_name='test_imgs'
     os.makedirs(fol_name,exist_ok=True)
 
-#browser = webdriver.Chrome()
-browser = webdriver.Firefox()
+browser = webdriver.Chrome()
+#browser = webdriver.Firefox()
 browser.maximize_window()
 browser.set_page_load_timeout(20)
 browser.get('http://blazedemo.com/index.php')
 
 #css injection
-browser.execute_script("document.getElementsByClassName('form-inline')[1].setAttribute('style','color:#fff;border:#fff');")
-#browser.execute_script("document.getElementsByClassName('form-inline')[1].setAttribute('style','color: #fff;border: #fff';);")
+#browser.execute_script("document.getElementsByClassName('form-inline')[0].setAttribute('style','color:#fff;border:#fff');")
+#browser.execute_script("document.getElementsByClassName('form-inline')[1].setAttribute('style','color: #fff;border: #fff');")
+browser.execute_script("document.getElementsByClassName('container')[2].setAttribute('style','color: blue');")
 time.sleep(3)
 
 browser.save_screenshot(os.path.join(fol_name,(browser.title)+'.png'))
@@ -58,5 +59,5 @@ browser.find_element_by_id('nameOnCard').send_keys('bits n bytes')
 browser.find_element_by_id('nameOnCard').send_keys('bits n bytes')
 browser.find_element_by_xpath("//input[@value='Purchase Flight']").click()
 
-time.sleep(3)
+time.sleep(2)
 browser.quit()
